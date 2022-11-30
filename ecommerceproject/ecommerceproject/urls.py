@@ -23,7 +23,10 @@ import shop
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('shop.urls')),
+<<<<<<< HEAD
     # path('shop/',include('shop.urls')),
+=======
+>>>>>>> fd7cf64f207d4f84b828d9ab1d6439889f3b38a4
     path('search/',include('search_app.urls')),
     path('cart/',include('cart.urls')),
 ]
