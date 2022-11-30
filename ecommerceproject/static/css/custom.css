@@ -107,6 +107,7 @@ text-align:left;
     padding-top:10px;
     padding-bottom:10px;
     width:300px;
+    height:300px;
 
 }
 
@@ -208,4 +209,8 @@ text-align:left;
 
 .last_div{
     margin-bottom:75px;
+}
+
+.my_banner{
+    width:87vw;
 }
