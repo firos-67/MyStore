@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+  {% if category %}
+    {{ category.description|truncatewords:150 }}
+  {% else %}
+    Welcome to MyStore... You can buy any items here..
+  {% endif %}
+{% endblock %}
+
+{% block title %}
+  {% if category %}
+    {{ category.name }} - MyStore
+  {% else %}
+    You can browse uncategorized items here
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<!--  {% if category %}-->
+<!--    <div>-->
+<!--      <div>-->
+<!--        <p><a href="{% url 'shop:allProdCat' %}">All Products</a></p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  {% endif %}-->
+  {% if category %}
+    <div clas="mx_auto">
+      <img class="my_img" src="{{category.image.url}}" alt="{{category.name}}">
+    </div>
+    <br>
+    <div>
+      <h1 class="text-center my_title">{{category.name}}</h1>
+      <p class="text-justify">{{category.description}}</p>
+    </div>
+  {% else %}
+    <div>
+      <img class="my_img my_img_pad" src="{% static 'img/banner.jpg' %}">
+    </div>
+    <br>
+    <div>
+      <h1 class="text-center my_title">Our Products Collection</h1>
+      <p class="text-justify">Et harum quidemkfmldkfjlm rerum fadkfdfkcilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis lldfllfvoluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferedis doloribus asperiores repellat."</p>
+    </div>
+  {% endif %}
+  <div class="container">
+    <div class="row mx-auto">
+      {% for product in products.object_list %}
+        <div class="my_bottom_margin col-9 col-sm-12 col-md-6 col-lg-4">
+          <div class="card text-center shadow" style="width:18rem">
+            <a href="{{product.get_url}}"><img class="card-img-top my_img" src="{{product.image.url}}" alt="{{product.name}}" width="200px" height="200px"><div class="my_overlay"><div class="btn btn-warning">View Details</div></div></a>
+            <div class="card-body">
+              <h4>{{product.name}}</h4>
+              <p>Rs. {{product.price}} /-</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+        </div>
+    </div>
+    <div class="mx-auto last_div">
+      {% if products.paginator.num_pages > 1 %}
+      <div class="text-center">
+      {% for p_num in products.paginator.page_range %}
+        <a href="?page={{p_num}}" class="btn btn-light btn-sm {% if products.number == p_num %} my_link {% endif %}">{{p_num}}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+{% endblock %}
+
