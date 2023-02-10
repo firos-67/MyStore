@@ -126,7 +126,7 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'androstoref7@gmail.com'
-EMAIL_HOST_PASSWORD = 'qgqhpbpzyntrwtxc'
+EMAIL_HOST_PASSWORD = ''
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
