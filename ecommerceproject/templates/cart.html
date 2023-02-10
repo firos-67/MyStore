@@ -33,7 +33,7 @@
                     {% for cart_item in cart_items %}
                         <tr>
                             <td>
-                                <a href="{{cart_item.product.get_url}}"><img class="cart_img" src="{{cart_item.product.image.url}}">{{cart_item.product.get_absolute.url}}</a>
+                                <a href="{{cart_item.product.get_url}}"><img class="cart_img" src="{{cart_item.product.image.url}}"></a>
                             </td>
                             <td class="text-left txt_l">
                                 {{cart_item.product.name}}<br>
@@ -82,7 +82,7 @@
                   </tbody>
 
               </table>
-              <div class="mx-auto">
+              <div class="mx-auto last_div">
                   <a href="{% url 'shop:allProdCat' %}" class="btn btn-secondary btn-block my_custom_go">Continue Shopping</a>
               </div>
           </div>

@@ -12,9 +12,9 @@
     <p class="text-center my_search_text">You have searched for : <b>" {{query}} "</b></p>
 </div>
  <div class="container">
-    <div class="row mx_auto">
+    <div class="row mx_auto last_div">
       {% for product in products %}
-        <div class="my_bottom_margin col-9 col-sm-12 col-md-4 col-lg-4 ">
+        <div class="my_bottom_margin col-12 col-sm-12 col-md-4 col-lg-4" style="display: flex;justify-content: center;">
           <div class="card text-center shadow" style="width:18rem">
             <a href="{{product.get_url}}"><img class="card-img-top my_img" src="{{product.image.url}}" alt="{{product.name}}" width="200px" height="200px"></a>
             <div class="card-body">

@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from shop.models import Products
 
@@ -7,6 +8,7 @@ from shop.models import Products
 class Cart(models.Model):
     cart_id = models.CharField(max_length=250, blank=True)
     date_added = models.DateField(auto_now_add=True)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'Cart'

@@ -1,9 +1,16 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <label class="nav-link">Hi, {{user.username}}</label>
+          </li>
+        {% endif %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'shop:allProdCat' %}">Home</a>
         </li>
@@ -18,6 +25,18 @@
             {% endfor %}
           </ul>
         </li>
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'credentials:logout' %}">Logout</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'credentials:register' %}">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'credentials:login' %}">Login</a>
+          </li>
+        {% endif %}
         {% if cart_count > 0 %}
         <li class="nav-item">
          <a class="nav-link" href="{% url 'cart:cart_details' %}"><i class="fa fa-shopping-cart"></i>({{cart_count}})</a>

@@ -22,17 +22,15 @@ import shop
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('shop.urls')),
-<<<<<<< HEAD
+    path('', include('shop.urls')),
     # path('shop/',include('shop.urls')),
-=======
->>>>>>> fd7cf64f207d4f84b828d9ab1d6439889f3b38a4
-    path('search/',include('search_app.urls')),
-    path('cart/',include('cart.urls')),
+    path('search/', include('search_app.urls')),
+    path('cart/', include('cart.urls')),
+    path('auth/', include('credentials.urls')),
 ]
 
 if settings.DEBUG:
-    urlpatterns+=static(settings.STATIC_URL,
-                        document_root=settings.STATIC_ROOT)
-    urlpatterns+=static(settings.MEDIA_URL,
-                        document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
